@@ -1,0 +1,50 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+{% block 'head' %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+{% block 'body' %}
+
+    <div class="container_">
+        
+        <div class="row">
+            <div class="col-md">
+                <h3 class="logo">Rotina de Insulina</h3>
+                <div class="box-form">
+                    <h3>CADASTRO DE ROTINA</h3>
+                    <hr style="border-color: #7E7B7C">
+                
+                    <form action="#" method="POST"> {% csrf_token %}
+                        <label>Digite seu nome</label>
+                        <input type = "text" class="form-control" placeholder = 'Nome' name = "username"> 
+                        <br>
+                        <label>Digite seu peso em Kg</label>
+                        <input type = "number" class="form-control" placeholder = 'Peso' name = "peso"> 
+                        <br>
+                        <label>Digite sua idade</label>
+                        <input type = "number" class="form-control" placeholder = 'Idade' name = "old"> 
+                        <br>
+                        <label>Você tem risco aumentado de hipogliecemia? -</label>
+                        <input type = "text" class="form-control" placeholder = '' name = "disease"> 
+                        <input type = "submit" value = "CADASTRAR DADOS" class = 'btn-principal'>
+                    </form>
+                </div>
+                
+
+                <img src="{% static '' %}" class="logo">
+
+            </div>
+
+            <div class="col-md bg-img">
+            
+            </div>
+        
+        </div>
+    </div>
+
+{% endblock %}
